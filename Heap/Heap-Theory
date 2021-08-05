@@ -1,0 +1,57 @@
+Implementation 
+
+=========================================================================
+1. Heap can be implemented using vectors in C++. In this case we will have to define a Struct function that will define the definition of comparsion.
+
+
+class KLargestNumbers {
+ public:
+  struct greater {
+    bool operator()(const int& a, const int& b) const { return a > b; }
+  };
+
+===================================================================================================================
+
+B) We can pass vector of numbers in the fucntion arguuement and can use make_heap function.
+static vector<int> findKLargestNumbers(const vector<int>& nums, int k) {
+    // put first 'K' numbers in the min heap
+    vector<int> minHeap(nums.begin(), nums.begin() + k);
+    make_heap(minHeap.begin(), minHeap.end(), greater());
+
+===================================================================================================================================
+C) minHeap.front() : gives the front element.
+
+D) pop_heap() : 
+
+E) push_back()
+
+F) pop_back: 
+
+G) push_heap()
+
+H) sort_heap()
+=====================================================================================================================================
+ for (int i = k; i < nums.size(); i++) {
+      if (nums[i] > minHeap.front()) {
+        pop_heap(minHeap.begin(), minHeap.end(), greater());
+        minHeap.pop_back();
+        minHeap.push_back(nums[i]);
+        push_heap(minHeap.begin(), minHeap.end(), greater());
+      }
+    }
+
+    // the heap has the top 'K' numbers
+    return minHeap;
+  }
+};
+
+===========================================================================================================================
+
+2. The other implementation of Heaps is from Priority Queues :
+
+priority_queue<int> maxHeap;
+
+A) we can perform push and pop directly it will implicitly heapify and percolate.
+
+
+

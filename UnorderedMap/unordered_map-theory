@@ -1,0 +1,55 @@
+Defintion
+
+#include <unordered_map>
+
+ unordered_map<string, double> umap;
+
+ unordered_map<int,int> mymap;
+
+ ===========================================================================================================
+
+ Operations
+
+ 1. We can insert the values in unordered_map using [] operator
+
+ // inserting values by using [] operator
+    umap["GeeksforGeeks"] = 10;
+    umap["Practice"] = 20;
+    umap["Contribute"] = 30;
+
+  / Traversing an unordered map
+    for (auto x : umap)
+      cout << x.first << " " << x.second << endl;
+
+ ==============================================================================================================
+
+ 2. We can also use insert function 
+
+ umap.insert(make_pair("e",2.718))
+
+ =========================================================================================================
+
+ 3. Searching a key
+
+ if (umap.find(key) == umap.end())
+        cout << key << " not found\n";
+    else
+        cout << "Found " << key << endl;
+  =============================================================================================
+
+  4. Iterating 
+
+  //    iterating over all value of umap
+    unordered_map<string, double>:: iterator itr;
+    cout << "\nAll Elements : \n";
+    for (itr = umap.begin(); itr != umap.end(); itr++)
+    {
+        // itr works as a pointer to pair<string, double>
+        // type itr->first stores the key part  and
+        // itr->second stroes the value part
+        cout << itr->first << "  " << itr->second << endl;
+     }
+}
+
+=======================================================================================
+ 
